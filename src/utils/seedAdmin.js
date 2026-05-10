@@ -15,10 +15,10 @@ const seedAdmin = async () => {
       await User.create({
         name: 'Libardo Jesús Meza Pantoja',
         email: 'admin@demostore.com',
-        passwordHash: 'Admin2026*',
+        passwordHash: 'Janis724',
         role: 'admin'
       });
-      console.log('👤 Admin creado: admin@demostore.com / Admin2026*');
+      console.log('👤 Admin creado: admin@demostore.com / Janis724');
     } else {
       console.log('👤 Admin ya existe');
     }

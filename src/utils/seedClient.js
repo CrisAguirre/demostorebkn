@@ -12,10 +12,10 @@ const seedClient = async () => {
       await User.create({
         name: 'Cliente Prueba',
         email,
-        passwordHash: 'Cliente2026*',
+        passwordHash: 'Janis724',
         role: 'cliente'
       });
-      console.log('👤 Cliente creado: cliente@demostore.com / Cliente2026*');
+      console.log('👤 Cliente creado: cliente@demostore.com / Janis724');
     } else {
       console.log('👤 Cliente ya existe');
     }
