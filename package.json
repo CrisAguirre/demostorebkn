@@ -1,5 +1,5 @@
 {
-  "name": "libkn",
+  "name": "demostorebkn",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CrisAguirre/libkn.git"
+    "url": "git+https://github.com/CrisAguirre/demostorebkn.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/CrisAguirre/libkn/issues"
+    "url": "https://github.com/CrisAguirre/demostorebkn/issues"
   },
-  "homepage": "https://github.com/CrisAguirre/libkn#readme",
+  "homepage": "https://github.com/CrisAguirre/demostorebkn#readme",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
