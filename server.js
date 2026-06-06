@@ -67,7 +67,7 @@ app.use('/api/debtors', debtorRoutes);
 
 // Ruta de health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString(), app: 'Demostore API' });
+  res.json({ status: 'OK', timestamp: new Date().toISOString(), app: 'Daily Mart API' });
 });
 
 // Manejo de errores global
@@ -76,7 +76,7 @@ app.use(errorHandler);
 // Conectar a BD e iniciar servidor
 connectDB().then(() => {
   app.listen(PORT, () => {
-    console.log(`\n🏪 Demostore API corriendo en puerto ${PORT}`);
+    console.log(`\n🏪 Daily Mart API corriendo en puerto ${PORT}`);
     console.log(`📡 Entorno: ${process.env.NODE_ENV || 'development'}`);
     console.log(`🔗 Health: http://localhost:${PORT}/api/health\n`);
   });

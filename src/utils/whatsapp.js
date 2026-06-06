@@ -7,7 +7,7 @@
 const generateWhatsAppLink = (whatsappNumber, order) => {
   const { customerName, items, total } = order;
 
-  let message = `🛒 *Nuevo Pedido - Demostore*\n\n`;
+  let message = `🛒 *Nuevo Pedido - Daily Mart*\n\n`;
   message += `👤 *Cliente:* ${customerName}\n`;
   message += `📅 *Fecha:* ${new Date().toLocaleString('es-CO')}\n\n`;
   message += `📦 *Productos:*\n`;
