@@ -8,7 +8,7 @@ exports.getAll = async (req, res, next) => {
     if (active !== undefined) filter.isActive = active === 'true';
     if (search) filter.$text = { $search: search };
 
-    const suppliers = await Supplier.find(filter).sort({ name: 1 });
+    const suppliers = await Supplier.find(filter).populate('categories', 'name icon code').sort({ name: 1 });
     res.json(suppliers);
   } catch (err) { next(err); }
 };
@@ -25,8 +25,25 @@ exports.getOne = async (req, res, next) => {
 // POST /api/suppliers
 exports.create = async (req, res, next) => {
   try {
+    // Auto-generate supplier code (sequential)
+    // Buscamos el mayor código numérico normal (menor a 99) para ignorar códigos especiales (ej. 99, 100)
+    const allSuppliers = await Supplier.find({}, 'code');
+    let maxNormalCode = 0;
+    
+    allSuppliers.forEach(s => {
+      const num = parseInt(s.code, 10);
+      if (!isNaN(num) && num < 99 && num > maxNormalCode) {
+        maxNormalCode = num;
+      }
+    });
+
+    const nextCode = (maxNormalCode + 1).toString().padStart(2, '0');
+    req.body.code = nextCode;
+
     const supplier = new Supplier(req.body);
     await supplier.save();
+    // Populate categories before returning
+    await supplier.populate('categories', 'name icon code');
     res.status(201).json(supplier);
   } catch (err) { next(err); }
 };
